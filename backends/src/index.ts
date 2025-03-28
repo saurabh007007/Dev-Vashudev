@@ -7,6 +7,8 @@ import { basePrompt as nodeBasePrompt } from "./defaults/node";
 import { basePrompt as reactBasePrompt } from "./defaults/react";
 import cors from "cors";
 
+const PORT = process.env.PORT || 3001;
+
 const anthropic = new Anthropic();
 const app = express();
 app.use(cors());
@@ -70,6 +72,6 @@ app.post("/chat", async (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("listeing on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
